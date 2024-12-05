@@ -1,0 +1,63 @@
+.TopNav {
+  grid-area: TopNav;
+
+  display: flex;
+  justify-content: space-between; /* Push left and right sections apart */
+  align-items: center; /* Vertically align all items */
+  overflow: hidden;
+
+  position: relative;
+
+  height: 50px;
+  padding: 0 10px;
+
+  color: #fff;
+  background: #a1a1a1;
+
+
+
+  .topnav-left,
+  .topnav-right {
+    display: flex;
+    align-items: center; /* Vertically align buttons */
+    gap: 10px; /* Space between buttons */
+
+
+    button {
+      padding: 10px;
+
+      background-color: transparent;
+
+      //border: none;
+      border-radius: 8px;
+      outline: none;
+
+      border: 1px solid #000;
+
+
+      &:hover {
+        background-color: #ccc;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  .topnav-centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; /* Prevents wrapping of the text */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility changes */
+
+
+    .overlap {
+      opacity: 0;
+      pointer-events: none; /* Prevent interaction when hidden */
+    }
+  }
+
+
+
+}
+

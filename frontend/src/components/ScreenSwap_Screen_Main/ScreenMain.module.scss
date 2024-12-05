@@ -1,0 +1,28 @@
+@use '@/styles/mixins.scss';
+
+.ScreenWrapper {
+  @include mixins.desktopScreenWrapper;
+
+
+  .primary-content {
+    @include mixins.screenPrimaryContent;
+  }
+
+
+  .top-right-content {
+    @include mixins.screenTopRightContent;
+  }
+
+}
+
+@media screen and (max-width: 1100px) {
+
+
+
+  .top-right-content {
+    display: none;
+  }
+
+
+
+}

@@ -1,0 +1,96 @@
+.ScreenHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center vertically */
+  height: 34px; /* Fixed height */
+  min-height: 34px;
+  padding-left: 10px;
+  background-color: #000;
+  border-bottom: 1px solid #fff;
+  cursor: default;
+
+  .header-left {
+    white-space: nowrap; /* Prevent title text from wrapping */
+    overflow: hidden; /* Prevent overflowing if the title is too long */
+    text-overflow: ellipsis; /* Add ellipsis if the title overflows */
+
+    h2 {
+      font-size: 20px;
+      color: #fff;
+    }
+
+  }
+
+  .header-right {
+
+    .window-controls {
+      display: flex;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 16px;
+        margin: auto 5px auto 0px;
+        background-color: #888;
+      }
+
+      button.window-control {
+        display: flex;
+        justify-content: center;
+        align-items: center; /* Center the SVG icon horizontally and vertically */
+
+        width: 34px;
+        height: 34px; /* Ensures the button matches header height */
+        font-size: 16px;
+
+        background-color: transparent;
+        transition: background-color 0.3s ease-in-out;
+        outline: none;
+        border: none;
+        cursor: default;
+
+        &::before {
+          content: '';
+          display: block;
+          width: 24px;
+          height: 24px;
+          transition: background-color 0.3s ease-in-out;
+          background-color: #fff;
+        }
+
+        &:hover {
+          background-color: #242424;
+        }
+
+        &.minimize::before {
+          mask: url('../../../public/icons/window_minimize.svg');
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: 75%;
+        }
+
+        &.maximize::before {
+          mask: url('../../../public/icons/window_maximize.svg');
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: 75%;
+
+        }
+
+        &.close {
+          &::before {
+            mask: url('../../../public/icons/window_close.svg');
+            mask-repeat: no-repeat;
+            mask-position: center;
+          }
+
+          &:hover {
+            background-color: #e81123;
+          }
+        }
+      }
+    }
+  }
+
+}

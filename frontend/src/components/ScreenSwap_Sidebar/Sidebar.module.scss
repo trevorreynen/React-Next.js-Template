@@ -1,0 +1,419 @@
+.Sidebar {
+  display: flex;
+  justify-content: flex-start; // Ensure top-aligned layout
+  flex-direction: column; // Stack child divs vertically
+  width: 200px;
+  min-width: 200px;
+
+  overflow: hidden;
+  color: #fff;
+  background: #333;
+
+  a {
+    text-decoration: none; /* Remove underline from links */
+  }
+
+
+  .sidebar-upper {
+    display: flex;
+    justify-content: center; // Center text horizontally
+    align-items: flex-end; // Align text to the bottom
+    height: 100px;
+    text-align: center;
+
+    border-bottom: 1px solid #aaa;
+
+
+    h2 {
+      margin-bottom: 15px; // Push text slightly from the bottom
+      font-size: 24px;
+      color: inherit;
+    }
+  }
+
+
+  ul.sidebar-main {
+    padding: 10px; // Inner padding for spacing
+    list-style: none; // Remove bullet points
+
+
+    li {
+      width: 100%;
+      border-radius: 10px;
+
+
+      button.menu-item {
+        display: flex; // Flexbox for icon and text alignment
+        align-items: center; // Vertically align icon and text
+        width: 100%;
+        padding: 10px;
+        background-color: transparent;
+        transition: background-color 0.3s; // Smooth hover effect
+        border-radius: 10px;
+        outline: none;
+        border: none;
+
+
+        span {
+          color: #fff;
+          font-size: 16px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+
+        &:hover {
+          background-color: #a1a1a1; // Light background on hover
+        }
+
+
+        .icon {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px; // Space between icon and text
+          background-color: #fff; // Background color of svg
+        }
+
+
+        .icon-main,
+        .icon-a,
+        .icon-b,
+        .icon-c,
+        .icon-d,
+        .icon-e,
+        .icon-f {
+          mask: url('../../../public/icons/settings-cog.svg');
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: contain;
+        }
+      }
+    }
+
+
+    li:not(:last-child) {
+      margin-bottom: 5px; // Spacing between links
+    }
+  }
+
+
+  ul.sidebar-lower {
+    margin-top: auto; // Push the lower section to the bottom
+    padding: 10px;
+    list-style: none; // Remove bullet points
+
+
+    li {
+      width: 100%;
+      border-radius: 10px;
+
+
+      button.menu-secondary {
+        display: flex;
+        justify-content: flex-start; // Align content to the left
+        align-items: center; // Vertically align icon and text
+        width: 100%;
+        padding: 10px;
+        background-color: transparent;
+        transition: background-color 0.3s; // Smooth hover effect
+        border-radius: 10px;
+        outline: none;
+        border: none;
+
+
+        span {
+          color: #fff;
+          font-size: 16px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+
+
+        &:hover {
+          text-decoration: none;
+          background-color: #a1a1a1;
+        }
+
+
+        .icon {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px; // Space between icon and text
+          background-color: #fff; // Background color of svg
+        }
+
+
+        .icon-settings,
+        .icon-premium {
+          mask: url('../../../public/icons/settings-cog.svg');
+          mask-repeat: no-repeat;
+          mask-position: center;
+          mask-size: contain;
+        }
+      }
+    }
+
+
+    li:not(:last-child) {
+      margin-bottom: 50px; // Spacing between links
+    }
+  }
+}
+
+
+@media screen and (max-width: 900px) {
+  // Set new sidebar width
+  .Sidebar {
+    width: 70px; // Shrinks sidebar to 70px
+    min-width: 70px; // Force sidebar to stay 70px and not shrink more
+
+
+    .sidebar-upper {
+      justify-content: center; // Center content horizontally
+      align-items: center; // Center content vertically
+      display: none;
+
+
+      // Hide text
+      h2 {
+        display: none;
+      }
+    }
+
+
+    ul.sidebar-main {
+      margin-top: 0px;
+    }
+
+
+    ul {
+
+      li {
+
+        button {
+
+
+          // Hide text
+          span {
+            display: none;
+          }
+
+
+          // Center-align icons in reduced sidebar
+          .icon {
+            min-width: 30px;
+            margin-left: auto; // Center icons horizontally
+            margin-right: auto !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+  /*
+  .menu-item {
+    position: relative;
+    width: 100%;
+    padding-left: 56px;
+    height: 64px;
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover,
+    &.selected {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 12px;
+      margin: auto;
+      width: 36px;
+      height: 36px;
+    }
+
+    &:before {
+      background: #404040;
+      border: 1px solid #404040;
+      border-radius: 50%;
+      transition: border-color 0.15s ease-in-out;
+    }
+
+    &.selected:before {
+      border-color: #dfdfdf;
+    }
+
+    &:after {
+      mask: center center no-repeat;
+      background-color: #9f9f9f;
+      transition: background-color 0.15s ease-in-out;
+    }
+
+    &:hover:after {
+      background-color: #bfbfbf;
+    }
+
+    &.selected:after {
+      background-color: #dfdfdf;
+    }
+  }
+
+  .menu-secondary {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 1px;
+    width: 100%;
+    min-height: 64px;
+    padding: 10px 12px;
+    line-height: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover,
+    &.selected {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      margin-right: 8px;
+      width: 20px;
+      height: 20px;
+      background: #9f9f9f;
+      mask: url('../../../public/icons/settings-cog.svg') center center no-repeat;
+      mask-size: contain;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 12px;
+      right: 12px;
+      height: 1px;
+      background: var(--border-border-quaternary, #303030);
+    }
+
+    + .menu-secondary:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -1px;
+      left: 12px;
+      right: 12px;
+      height: 1px;
+      background: #303030;
+    }
+  }
+
+  .menu-premium {
+    margin-top: auto;
+
+    &::before {
+      //mask-image: url('../../images/premium.svg');
+    }
+  }
+
+  .menu-status {
+    &::before {
+      background: #32a912;
+      //mask-image: url('../../images/status-select.svg');
+    }
+
+    &.status-warning::before {
+      background: #e07000;
+    }
+
+    &.status-error::before {
+      background: #fc3737;
+    }
+  }
+
+  .menu-settings {
+    &::before {
+      mask-image: url('../../../public/icons/settings-cog.svg');
+    }
+  }
+
+  .status-popup {
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+    z-index: 2;
+    color: #dfdfdf;
+    border: 1px solid #606060;
+    background: #404040;
+
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.32px;
+
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 150ms ease-in-out, opacity 150ms ease-in-out;
+  }
+
+  .menu-status:hover .status-popup {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .status-select {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    line-height: 24px;
+    padding: 8px 10px;
+    white-space: nowrap;
+    transition: background-color 150ms ease-in-out;
+
+    &:hover {
+      background-color: var(--hover-hover-quaternary, #505050);
+    }
+
+    &::before {
+      content: '';
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: #fff;
+      //mask: url('../../images/status-select.svg') no-repeat center center;
+      mask-size: contain;
+    }
+
+    &.normal::before {
+      background-color: #32a912;
+    }
+
+    &.warning::before {
+      background-color: #e07000;
+    }
+
+    &.error::before {
+      background-color: #fc3737;
+    }
+  }
+ */
+

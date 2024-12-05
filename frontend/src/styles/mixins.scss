@@ -1,0 +1,62 @@
+@mixin scrollable($overflowRule: auto) {
+  overflow-x: hidden;
+  overflow-y: $overflowRule;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #404040;
+
+    &:hover {
+      background: #505050;
+    }
+  }
+}
+
+@mixin desktopScreenWrapper() {
+  display: grid;
+  grid-template-areas: "primary-content top-right-content" "primary-content .";
+  grid-template-rows: 1fr 1fr; // Two rows
+  grid-template-columns: 1fr 300px; // Main content + right side
+  gap: 10px; // Spacing between containers
+  flex: 1; // Fills remaining space below the header
+  padding: 10px;
+  background-color: #aaa;
+}
+
+@mixin screenPrimaryContent() {
+  grid-area: primary-content;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  background-color: #ddd;
+}
+
+@mixin screenTopRightContent() {
+  grid-area: top-right-content;
+  max-height: 300px;
+  padding: 10px;
+  color: #fff;
+  background-color: #555;
+}
+
+@mixin screenMaxWidth1100px() {
+  .ScreenWrapper {
+    grid-template-areas: "primary-content"; // Only show primary-content
+    grid-template-columns: 1fr; // Remove the 300px column for top-right-content
+    grid-template-rows: auto; // Adjust rows as needed
+
+    .primary-content {
+      grid-area: primary-content; // Ensure it occupies the full area
+    }
+
+    .top-right-content {
+      display: none;
+    }
+  }
+}

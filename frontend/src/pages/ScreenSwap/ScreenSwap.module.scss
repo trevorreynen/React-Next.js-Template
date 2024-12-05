@@ -1,0 +1,18 @@
+.ScreenSwap {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+
+  .main-wrapper {
+    display: flex; // Ensure proper flex layout for Sidebar + ScreenMain
+    flex: 1; // Fill the vertical space
+    overflow: hidden; // Prevent overflow
+  }
+
+}
